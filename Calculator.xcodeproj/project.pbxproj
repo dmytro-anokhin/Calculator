@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F48E45D42480FBF0008D58C3 /* Antlr4 in Frameworks */ = {isa = PBXBuildFile; productRef = F48E45D32480FBF0008D58C3 /* Antlr4 */; };
+		F48E45D52480FBF0008D58C3 /* Antlr4 in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F48E45D32480FBF0008D58C3 /* Antlr4 */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F49EF1FE247E13AC0001F968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49EF1FD247E13AC0001F968 /* AppDelegate.swift */; };
 		F49EF200247E13AC0001F968 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49EF1FF247E13AC0001F968 /* SceneDelegate.swift */; };
 		F49EF202247E13AC0001F968 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49EF201247E13AC0001F968 /* ContentView.swift */; };
@@ -28,6 +30,20 @@
 			remoteInfo = Calculator;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F48E45D62480FBF0008D58C3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F48E45D52480FBF0008D58C3 /* Antlr4 in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F49EF1FA247E13AC0001F968 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48E45D42480FBF0008D58C3 /* Antlr4 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,12 +151,16 @@
 				F49EF1F6247E13AC0001F968 /* Sources */,
 				F49EF1F7247E13AC0001F968 /* Frameworks */,
 				F49EF1F8247E13AC0001F968 /* Resources */,
+				F48E45D62480FBF0008D58C3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Calculator;
+			packageProductDependencies = (
+				F48E45D32480FBF0008D58C3 /* Antlr4 */,
+			);
 			productName = Calculator;
 			productReference = F49EF1FA247E13AC0001F968 /* Calculator.app */;
 			productType = "com.apple.product-type.application";
@@ -190,6 +211,9 @@
 				Base,
 			);
 			mainGroup = F49EF1F1247E13AC0001F968;
+			packageReferences = (
+				F48E45D22480FBF0008D58C3 /* XCRemoteSwiftPackageReference "Antlr4" */,
+			);
 			productRefGroup = F49EF1FB247E13AC0001F968 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -493,6 +517,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F48E45D22480FBF0008D58C3 /* XCRemoteSwiftPackageReference "Antlr4" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "file:./../Antlr4";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F48E45D32480FBF0008D58C3 /* Antlr4 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F48E45D22480FBF0008D58C3 /* XCRemoteSwiftPackageReference "Antlr4" */;
+			productName = Antlr4;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F49EF1F2247E13AC0001F968 /* Project object */;
 }
