@@ -146,7 +146,7 @@ struct KeyboardView: View {
 
     private let inputButtons: [[KeyboardButton]] = [
         [ .digit("9"), .digit("8"), .digit("7"), .arithmetic("÷") ],
-        [ .digit("6"), .digit("5"), .digit("4"), .arithmetic("*") ],
+        [ .digit("6"), .digit("5"), .digit("4"), .arithmetic("×") ],
         [ .digit("3"), .digit("2"), .digit("1"), .arithmetic("-") ],
         [ .placeholder, .digit("0"), .placeholder, .arithmetic("+") ]
     ]

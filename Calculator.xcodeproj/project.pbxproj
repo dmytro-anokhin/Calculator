@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F48108252488396E00AE2FDA /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48108242488396E00AE2FDA /* Interpreter.swift */; };
+		F48108272488398200AE2FDA /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48108262488398200AE2FDA /* Instruction.swift */; };
+		F481082924883B2900AE2FDA /* VirtualMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481082824883B2900AE2FDA /* VirtualMachine.swift */; };
+		F481083824896F9900AE2FDA /* ArithmeticBaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481082E24896F9900AE2FDA /* ArithmeticBaseListener.swift */; };
+		F481083A24896F9900AE2FDA /* ArithmeticLexerATN.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481083024896F9900AE2FDA /* ArithmeticLexerATN.swift */; };
+		F481083B24896F9900AE2FDA /* ArithmeticLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481083124896F9900AE2FDA /* ArithmeticLexer.swift */; };
+		F481083C24896F9900AE2FDA /* ArithmeticParserATN.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481083224896F9900AE2FDA /* ArithmeticParserATN.swift */; };
+		F481083E24896F9900AE2FDA /* ArithmeticListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481083424896F9900AE2FDA /* ArithmeticListener.swift */; };
+		F481083F24896F9900AE2FDA /* ArithmeticParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481083524896F9900AE2FDA /* ArithmeticParser.swift */; };
 		F48E45D42480FBF0008D58C3 /* Antlr4 in Frameworks */ = {isa = PBXBuildFile; productRef = F48E45D32480FBF0008D58C3 /* Antlr4 */; };
 		F48E45D52480FBF0008D58C3 /* Antlr4 in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F48E45D32480FBF0008D58C3 /* Antlr4 */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F49EF1FE247E13AC0001F968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49EF1FD247E13AC0001F968 /* AppDelegate.swift */; };
@@ -46,6 +55,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F48108242488396E00AE2FDA /* Interpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
+		F48108262488398200AE2FDA /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
+		F481082824883B2900AE2FDA /* VirtualMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualMachine.swift; sourceTree = "<group>"; };
+		F481082E24896F9900AE2FDA /* ArithmeticBaseListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArithmeticBaseListener.swift; sourceTree = "<group>"; };
+		F481083024896F9900AE2FDA /* ArithmeticLexerATN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArithmeticLexerATN.swift; sourceTree = "<group>"; };
+		F481083124896F9900AE2FDA /* ArithmeticLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArithmeticLexer.swift; sourceTree = "<group>"; };
+		F481083224896F9900AE2FDA /* ArithmeticParserATN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArithmeticParserATN.swift; sourceTree = "<group>"; };
+		F481083424896F9900AE2FDA /* ArithmeticListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArithmeticListener.swift; sourceTree = "<group>"; };
+		F481083524896F9900AE2FDA /* ArithmeticParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArithmeticParser.swift; sourceTree = "<group>"; };
+		F48E45EA2483E70D008D58C3 /* Arithmetic.g4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Arithmetic.g4; sourceTree = "<group>"; };
 		F49EF1FA247E13AC0001F968 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49EF1FD247E13AC0001F968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49EF1FF247E13AC0001F968 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +100,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F48108232488394800AE2FDA /* Interpreter */ = {
+			isa = PBXGroup;
+			children = (
+				F48108242488396E00AE2FDA /* Interpreter.swift */,
+				F48108262488398200AE2FDA /* Instruction.swift */,
+				F481082824883B2900AE2FDA /* VirtualMachine.swift */,
+			);
+			path = Interpreter;
+			sourceTree = "<group>";
+		};
+		F48E45D72483E306008D58C3 /* Grammar */ = {
+			isa = PBXGroup;
+			children = (
+				F48E45EA2483E70D008D58C3 /* Arithmetic.g4 */,
+				F48E45EB2483E70D008D58C3 /* Autogen */,
+			);
+			path = Grammar;
+			sourceTree = "<group>";
+		};
+		F48E45EB2483E70D008D58C3 /* Autogen */ = {
+			isa = PBXGroup;
+			children = (
+				F481082E24896F9900AE2FDA /* ArithmeticBaseListener.swift */,
+				F481083124896F9900AE2FDA /* ArithmeticLexer.swift */,
+				F481083024896F9900AE2FDA /* ArithmeticLexerATN.swift */,
+				F481083424896F9900AE2FDA /* ArithmeticListener.swift */,
+				F481083524896F9900AE2FDA /* ArithmeticParser.swift */,
+				F481083224896F9900AE2FDA /* ArithmeticParserATN.swift */,
+			);
+			path = Autogen;
+			sourceTree = "<group>";
+		};
 		F49EF1F1247E13AC0001F968 = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +153,9 @@
 		F49EF1FC247E13AC0001F968 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				F48E45D72483E306008D58C3 /* Grammar */,
 				F49EF221247FA3D20001F968 /* Keyboard */,
+				F48108232488394800AE2FDA /* Interpreter */,
 				F49EF1FD247E13AC0001F968 /* AppDelegate.swift */,
 				F49EF1FF247E13AC0001F968 /* SceneDelegate.swift */,
 				F49EF201247E13AC0001F968 /* ContentView.swift */,
@@ -251,10 +304,19 @@
 			files = (
 				F49EF1FE247E13AC0001F968 /* AppDelegate.swift in Sources */,
 				F49EF220247E16780001F968 /* KeyboardView.swift in Sources */,
+				F481083824896F9900AE2FDA /* ArithmeticBaseListener.swift in Sources */,
 				F49EF200247E13AC0001F968 /* SceneDelegate.swift in Sources */,
 				F49EF225247FAE670001F968 /* KeyboardStream.swift in Sources */,
+				F481083A24896F9900AE2FDA /* ArithmeticLexerATN.swift in Sources */,
+				F481083B24896F9900AE2FDA /* ArithmeticLexer.swift in Sources */,
+				F481083E24896F9900AE2FDA /* ArithmeticListener.swift in Sources */,
+				F48108252488396E00AE2FDA /* Interpreter.swift in Sources */,
+				F481082924883B2900AE2FDA /* VirtualMachine.swift in Sources */,
 				F49EF223247FA40C0001F968 /* Grid.swift in Sources */,
+				F48108272488398200AE2FDA /* Instruction.swift in Sources */,
 				F49EF202247E13AC0001F968 /* ContentView.swift in Sources */,
+				F481083F24896F9900AE2FDA /* ArithmeticParser.swift in Sources */,
+				F481083C24896F9900AE2FDA /* ArithmeticParserATN.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

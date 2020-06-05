@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
 
     @ObservedObject
@@ -20,7 +21,7 @@ struct ContentView: View {
                 .font(Font.largeTitle)
                 .foregroundColor(Color(white: 0.9))
             Spacer()
-            Text(keyboardStream.string)
+            Text(transform(keyboardStream.string))
                 .frame(minHeight: 44.0)
                 .font(Font.title)
                 .foregroundColor(Color(white: 0.9))
@@ -30,7 +31,19 @@ struct ContentView: View {
         .padding(.all)
         .background(Color.purple)
     }
+
+    private func transform(_ input: String) -> String {
+        let result = Interpreter().evaluate(input)
+
+        switch result {
+            case .success(let value):
+                return "\(value)"
+            case .failure:
+                return ""
+        }
+    }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
