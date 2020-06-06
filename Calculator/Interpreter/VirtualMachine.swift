@@ -6,48 +6,19 @@
 //  Copyright © 2020 Dmytro Anokhin. All rights reserved.
 //
 
+struct VirtualMachine : VirtualMachineType {
 
-struct VirtualMachine {
-
-    typealias Result = Swift.Result<Double, Error>
-
-    enum Error : Swift.Error {
-
-        case generic
-    }
-
-    func execute(_ instructions: [Instruction]) -> Result {
+    func execute(_ instructions: [InstructionType]) throws -> Double {
         var stack: [Double] = []
 
         for instruction in instructions {
-            switch instruction {
-                case .load(let number):
-                    stack.append(number)
-
-                case .arithmetic(let `operator`):
-                    guard stack.count > 1 else {
-                        return .failure(.generic)
-                    }
-
-                    let arg1 = stack.removeLast()
-                    let arg2 = stack.removeLast()
-
-                    stack.append(`operator`(arg2, arg1))
-
-                case .negate:
-                    guard !stack.isEmpty else {
-                        return .failure(.generic)
-                    }
-
-                    let arg = stack.removeLast()
-                    stack.append(-arg)
-            }
+            try instruction.execute(&stack)
         }
 
         guard let resultValue = stack.last else {
-            return .failure(.generic)
+            throw RuntimeError.generic
         }
 
-        return .success(resultValue)
+        return resultValue
     }
 }

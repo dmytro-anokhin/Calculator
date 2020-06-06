@@ -33,7 +33,8 @@ struct ContentView: View {
     }
 
     private func transform(_ input: String) -> String {
-        let result = Interpreter().evaluate(input)
+        let interpreter = Interpreter(parser: ArithmeticParserWrapper(), virtualMachine: VirtualMachine())
+        let result = interpreter.evaluate(input)
 
         switch result {
             case .success(let value):

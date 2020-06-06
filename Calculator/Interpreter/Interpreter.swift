@@ -9,91 +9,56 @@
 import Antlr4
 
 
-final class Interpreter {
+protocol ParserType {
+
+    func parseExpression(_ input: String) throws -> [Instruction]
+}
+
+protocol VirtualMachineType {
+
+    func execute(_ instructions: [InstructionType]) throws -> Double
+}
+
+protocol InstructionType {
+
+    func execute(_ stack: inout [Double]) throws
+}
+
+
+struct Interpreter {
 
     enum Error : Swift.Error {
 
         case syntax(_ error: Swift.Error)
 
-        case runtime(_ error: Swift.Error)
+        case runtime(_ error: RuntimeError)
+    }
+
+    let parser: ParserType
+
+    let virtualMachine: VirtualMachineType
+
+    init(parser: ParserType, virtualMachine: VirtualMachineType) {
+        self.parser = parser
+        self.virtualMachine = virtualMachine
     }
 
     func evaluate(_ input: String) -> Result<Double, Error> {
-        do {
-            let instructions = try parseExpression(input)
+        let instructions: [Instruction]
 
-            switch VirtualMachine().execute(instructions) {
-                case .success(let value):
-                    return .success(value)
-                case .failure(let error):
-                    return .failure(.runtime(error))
-            }
+        do {
+            instructions = try parser.parseExpression(input)
         }
         catch {
             return .failure(.syntax(error))
         }
-    }
 
-    private final class Listener : ArithmeticBaseListener {
-
-        private(set) var instructions: [Instruction] = []
-
-        override func exitExpression(_ ctx: ArithmeticParser.ExpressionContext) {
-            if ctx.MULT() != nil {
-                // expression MULT expression
-                instructions.append(.arithmetic(*))
-            }
-            else if ctx.DIV() != nil {
-                // expression DIV expression
-                instructions.append(.arithmetic(/))
-            }
-            else if ctx.PLUS(0) != nil {
-                if ctx.number() == nil {
-                    // expression PLUS expression
-                    instructions.append(.arithmetic(+))
-                }
-                else {
-                    // PLUS number
-                    // Noop
-                }
-            }
-            else if ctx.MINUS(0) != nil {
-                if ctx.number() == nil {
-                    // expression MINUS expression
-                    instructions.append(.arithmetic(-))
-                }
-                else {
-                    // MINUS number
-                    instructions.append(.negate)
-                }
-            }
+        do {
+            let resultValue = try virtualMachine.execute(instructions)
+            return .success(resultValue)
         }
-
-        override func enterNumber(_ ctx: ArithmeticParser.NumberContext) {
-            guard let number = Double(ctx.getText()) else {
-                // This can happen when input is a + or - symbol without an actual number.
-                return
-            }
-
-            instructions.append(.load(number))
+        catch {
+            return .failure(.syntax(error))
         }
-    }
-
-    private func parseExpression(_ input: String) throws -> [Instruction] {
-        let parser = try buildParser(input)
-        let expressionContext = try parser.expression()
-
-        let listener = Listener()
-        try ParseTreeWalker().walk(listener, expressionContext)
-
-        return listener.instructions
-    }
-
-    private func buildParser(_ input: String) throws -> ArithmeticParser {
-        let inputStream = ANTLRInputStream(input)
-        let lexer = ArithmeticLexer(inputStream)
-        let tokenStream = CommonTokenStream(lexer)
-
-        return try ArithmeticParser(tokenStream)
     }
 }

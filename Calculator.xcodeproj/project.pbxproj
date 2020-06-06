@@ -16,6 +16,8 @@
 		F481083C24896F9900AE2FDA /* ArithmeticParserATN.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481083224896F9900AE2FDA /* ArithmeticParserATN.swift */; };
 		F481083E24896F9900AE2FDA /* ArithmeticListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481083424896F9900AE2FDA /* ArithmeticListener.swift */; };
 		F481083F24896F9900AE2FDA /* ArithmeticParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481083524896F9900AE2FDA /* ArithmeticParser.swift */; };
+		F4810843248AEB2300AE2FDA /* ArithmeticParserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4810842248AEB2300AE2FDA /* ArithmeticParserWrapper.swift */; };
+		F4810847248C098300AE2FDA /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4810846248C098300AE2FDA /* RuntimeError.swift */; };
 		F48E45D42480FBF0008D58C3 /* Antlr4 in Frameworks */ = {isa = PBXBuildFile; productRef = F48E45D32480FBF0008D58C3 /* Antlr4 */; };
 		F48E45D52480FBF0008D58C3 /* Antlr4 in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F48E45D32480FBF0008D58C3 /* Antlr4 */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F49EF1FE247E13AC0001F968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49EF1FD247E13AC0001F968 /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 		F481083224896F9900AE2FDA /* ArithmeticParserATN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArithmeticParserATN.swift; sourceTree = "<group>"; };
 		F481083424896F9900AE2FDA /* ArithmeticListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArithmeticListener.swift; sourceTree = "<group>"; };
 		F481083524896F9900AE2FDA /* ArithmeticParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArithmeticParser.swift; sourceTree = "<group>"; };
+		F4810842248AEB2300AE2FDA /* ArithmeticParserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticParserWrapper.swift; sourceTree = "<group>"; };
+		F4810846248C098300AE2FDA /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
 		F48E45EA2483E70D008D58C3 /* Arithmetic.g4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Arithmetic.g4; sourceTree = "<group>"; };
 		F49EF1FA247E13AC0001F968 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49EF1FD247E13AC0001F968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				F48108242488396E00AE2FDA /* Interpreter.swift */,
 				F48108262488398200AE2FDA /* Instruction.swift */,
 				F481082824883B2900AE2FDA /* VirtualMachine.swift */,
+				F4810842248AEB2300AE2FDA /* ArithmeticParserWrapper.swift */,
+				F4810846248C098300AE2FDA /* RuntimeError.swift */,
 			);
 			path = Interpreter;
 			sourceTree = "<group>";
@@ -306,6 +312,8 @@
 				F49EF220247E16780001F968 /* KeyboardView.swift in Sources */,
 				F481083824896F9900AE2FDA /* ArithmeticBaseListener.swift in Sources */,
 				F49EF200247E13AC0001F968 /* SceneDelegate.swift in Sources */,
+				F4810843248AEB2300AE2FDA /* ArithmeticParserWrapper.swift in Sources */,
+				F4810847248C098300AE2FDA /* RuntimeError.swift in Sources */,
 				F49EF225247FAE670001F968 /* KeyboardStream.swift in Sources */,
 				F481083A24896F9900AE2FDA /* ArithmeticLexerATN.swift in Sources */,
 				F481083B24896F9900AE2FDA /* ArithmeticLexer.swift in Sources */,
