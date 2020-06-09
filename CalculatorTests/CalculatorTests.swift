@@ -9,26 +9,24 @@
 import XCTest
 @testable import Calculator
 
+
 class CalculatorTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func testSuccess() throws {
+        let samples: [(String, Double)] = [
+            ("40 + 2", 42.0),
+            ("2 + 4 × 10", 42.0)
+        ]
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        for sample in samples {
+            let interpreter = Interpreter(parser: ArithmeticParserWrapper(), virtualMachine: VirtualMachine())
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            switch interpreter.evaluate(sample.0) {
+                case .success(let value):
+                    XCTAssertEqual(value, sample.1)
+                case .failure(let error):
+                    XCTFail("Error evaluating expression '\(sample.0)': expected: \(sample.1); got: \(error)")
+            }
         }
     }
-
 }
