@@ -40,7 +40,7 @@ struct Interpreter {
 
     let virtualMachine: VirtualMachineType
 
-    init(parser: ParserType, virtualMachine: VirtualMachineType) {
+    init(parser: ParserType = ArithmeticParserWrapper(), virtualMachine: VirtualMachineType = VirtualMachine()) {
         self.parser = parser
         self.virtualMachine = virtualMachine
     }
