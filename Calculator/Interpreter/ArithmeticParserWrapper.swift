@@ -9,8 +9,10 @@
 import Antlr4
 
 
+/// Wrapper (adapter) around Antlr4 library.
 struct ArithmeticParserWrapper : ParserType {
-    
+
+    /// Convers AST nodes to instructions.
     private final class Listener : ArithmeticBaseListener {
 
         private(set) var instructions: [Instruction] = []
@@ -30,8 +32,7 @@ struct ArithmeticParserWrapper : ParserType {
                     instructions.append(.arithmetic(+))
                 }
                 else {
-                    // PLUS number
-                    // Noop
+                    // PLUS number - noop
                 }
             }
             else if ctx.MINUS(0) != nil {
@@ -48,7 +49,7 @@ struct ArithmeticParserWrapper : ParserType {
 
         override func enterNumber(_ ctx: ArithmeticParser.NumberContext) {
             guard let number = Double(ctx.getText()) else {
-                // This can happen when input is a + or - symbol without an actual number.
+                // This happens when the token is a '+' or '-' symbol without an actual number.
                 return
             }
 

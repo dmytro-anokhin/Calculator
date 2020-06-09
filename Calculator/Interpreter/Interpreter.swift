@@ -6,8 +6,6 @@
 //  Copyright © 2020 Dmytro Anokhin. All rights reserved.
 //
 
-import Antlr4
-
 
 protocol ParserType {
 
@@ -25,12 +23,16 @@ protocol InstructionType {
 }
 
 
+/// Interpreter parses and evaluates instructions.
 struct Interpreter {
 
+    /// An error that can occur during evaluation.
     enum Error : Swift.Error {
 
+        /// Syntax error in input. Reported by the parser.
         case syntax(_ error: Swift.Error)
 
+        /// Runtime error during instruction execution.
         case runtime(_ error: RuntimeError)
     }
 
@@ -43,6 +45,7 @@ struct Interpreter {
         self.virtualMachine = virtualMachine
     }
 
+    /// Evaluates the input string and returns resulting number or an error
     func evaluate(_ input: String) -> Result<Double, Error> {
         let instructions: [Instruction]
 
