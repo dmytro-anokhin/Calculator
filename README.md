@@ -16,3 +16,5 @@ switch result {
 ```
 42.0
 ```
+
+And the app is in SwiftUI :) 
