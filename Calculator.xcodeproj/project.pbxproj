@@ -57,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F466C3F026C572E400A00130 /* Antlr4 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Antlr4; sourceTree = "<group>"; };
 		F48108242488396E00AE2FDA /* Interpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
 		F48108262488398200AE2FDA /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
 		F481082824883B2900AE2FDA /* VirtualMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualMachine.swift; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 		F49EF1F1247E13AC0001F968 = {
 			isa = PBXGroup;
 			children = (
+				F466C3F026C572E400A00130 /* Antlr4 */,
 				F49EF1FC247E13AC0001F968 /* Calculator */,
 				F49EF213247E13B00001F968 /* CalculatorTests */,
 				F49EF1FB247E13AC0001F968 /* Products */,
